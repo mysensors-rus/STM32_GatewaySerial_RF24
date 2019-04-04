@@ -45,6 +45,10 @@
 					PA5	(SPI)			SCK  (SPI Clock)
 					PA6	(SPI)			MISO (SPI master input slave output)
 					PA7	(SPI)			MOSI (SPI master output slave input)
+
+										usb to ttl converter
+					PA9						rx
+					PA10					tx
 */
 
 //Define this to change the chip enable pin from the default.
@@ -55,13 +59,9 @@
 // CSN (SPI Chip select) Пин для выбора устройства на шине SPI с которым мы хотим работать (пин можно назначить любой)
 #define MY_RF24_CS_PIN PA1	
 
-//TODO: проверть IRQ
-// По идее нога для прерываний, но надо проверить, задействоана ли она вообще? (пин можно назначить любой)
-#define MY_RF24_IRQ_PIN PA0	
-
 // Set LOW transmit power level as default, if you have an amplified NRF-module and
 // power your radio separately with a good regulator you can turn up PA level.
-#define MY_RF24_PA_LEVEL RF24_PA_LOW	// Устанавливаем мощьность передатчика
+#define MY_RF24_PA_LEVEL RF24_PA_LOW	// Устанавливаем мощность передатчика
 
 // Enable serial gateway
 #define MY_GATEWAY_SERIAL	// тип шлюза
