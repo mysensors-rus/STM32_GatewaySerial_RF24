@@ -37,18 +37,27 @@
 //#define MY_RADIO_RFM69
 //#define MY_RADIO_RFM95
 
-// По умолчанию будет задействован первый порт SPI
-// на пинах - PA5, PA6, PA7
+/*
+ По умолчанию будет задействован первый порт SPI
+ на пинах - PA5, PA6, PA7
 
-//(PB0, PA1, PA0);  // CE, CSN, IRQ pins
+			  	STM32F103C8T6				nRF24
+					PA5	(SPI)			SCK  (SPI Clock)
+					PA6	(SPI)			MISO (SPI master input slave output)
+					PA7	(SPI)			MOSI (SPI master output slave input)
+*/
+
 //Define this to change the chip enable pin from the default.
-#define MY_RF24_CE_PIN PB0	// Управляет режимом радимодуля - приём или передача
+// CE (Chip enable)  Управляет режимом радимодуля - приём или передача (пин можно назначить любой)
+#define MY_RF24_CE_PIN PB0	
 
 //Define this to change the chip select pin from the default.
-#define MY_RF24_CS_PIN PA1	// Пин для выбора устройства на шине SPI с которым мы хотим работать
+// CSN (SPI Chip select) Пин для выбора устройства на шине SPI с которым мы хотим работать (пин можно назначить любой)
+#define MY_RF24_CS_PIN PA1	
 
 //TODO: проверть IRQ
-#define MY_RF24_IRQ_PIN PA0	// По идее нога для прерываний, но надо проверить, задействоана ли она вообще?
+// По идее нога для прерываний, но надо проверить, задействоана ли она вообще? (пин можно назначить любой)
+#define MY_RF24_IRQ_PIN PA0	
 
 // Set LOW transmit power level as default, if you have an amplified NRF-module and
 // power your radio separately with a good regulator you can turn up PA level.
@@ -84,12 +93,12 @@
 
 #include <MySensors.h>
 
-//SPIClass SPI_2(2); // Для работы со вторым портом SPI надо править файл библиотеки - w5500.cpp
+//SPIClass SPI_2(2); // Для работы со вторым портом SPI надо править файл библиотеки, например w5500.cpp
 
 void setup()
 {
 	// Setup locally attached sensors
- Serial1.println("Gateway started");
+ 	//Serial1.println("Gateway started");
 }
 
 void presentation()
